@@ -7,5 +7,5 @@ generateButton.onclick = generateLayers;
 
 function generateLayers()
 {  
-    layers.innerText = 'Layers: Lol' + //Math.floor(Math.random() * 11).toString();
+    layers.innerText = 'Layers: Lol' + /*Math.floor(Math.random() * 11).toString()*/;
 }
