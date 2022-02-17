@@ -107,7 +107,7 @@ function IfHealth(yes)
         layers.innerText = "Health:";
         bloonAlikes.innerHTML = 'M.O.A.B-Alike:';
         generateButton.onclick = generateHealth;
-        inclusive.innerHTML = '<p>Set Max Health: <input type="range" min="1" max="20000" id="range"> <br><p id="hp">(Max Health:)</p></p>';
+        inclusive.innerHTML = '<p>Set Max Health: <input type="range" min="1" max="40000" id="range"> <br><p id="hp">(Max Health:)</p></p>';
         maxHealth = document.getElementById("range");
         maxHealth.value = 200;
         hp = document.getElementById("hp");
