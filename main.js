@@ -68,9 +68,10 @@ function getBloonAlike(layersOnBloon)
             bloonImgs.innerHTML = '<img src="BTD6Pink.png"/>';
         break;
         case 6:
-            bloonAlikes.innerHTML = 'Bloon-Alike: <br/> Black or White Bloon';
+            bloonAlikes.innerHTML = 'Bloon-Alike: <br/> Black, White or Purple Bloon';
             bloonImgs.innerHTML = '<img src="BTD6Black.png"/>';
             bloonImgs.innerHTML += '<img src="BTD6White.png"/>';
+            bloonImgs.innerHTML += '<img src="Purplebloon.png"/>';
         break;
         case 7:
             bloonAlikes.innerHTML = 'Bloon-Alike: <br/> Zebra/Striped Bloon';
