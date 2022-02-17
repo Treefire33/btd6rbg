@@ -6,6 +6,7 @@ var usesHealthCheck = document.getElementById("checkHealth");
 var maxHealth;
 var hp;
 var inclusive = document.getElementById("inclusive");
+var children = document.getElementById("children");
 
 generateButton.onclick = generateLayers;
 usesHealthCheck.onclick = setUsesHealth;
@@ -17,6 +18,7 @@ function generateLayers()
     genedLayers = getRandomInt(1,8);
     layers.innerText = 'Layers: ' + genedLayers.toString();
     getBloonAlike(genedLayers);
+    generateChildren();
 }
 
 function generateHealth()
@@ -24,6 +26,21 @@ function generateHealth()
     genedHealth = getRandomInt(1,maxHealth.value);
     layers.innerText = 'Health: ' + genedHealth.toString();
     getMoabALike(genedHealth);
+    generateChildren();
+}
+
+function generateChildren()
+{
+    var bloonTypes = ["Red","Blue","Green","Yellow","Pink","Black","White","Zebra","Rainbow","Ceramic","MOAB","DDT","BFB","ZOMG","BAD"];
+    let randomBloon = getRandomInt(0,bloonTypes.length-1);
+    if(randomBloon < 10)
+    {
+        children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon] + " Bloon";
+    }
+    else
+    {
+        children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon];
+    }
 }
 
 function getBloonAlike(layersOnBloon)
