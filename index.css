@@ -1,14 +1,29 @@
 body{
     text-align: center;
+    font-size: larger;
+    font-family: fantasy;
 }
 .mainstuff{
-    display: block;
+    display: contents;
 }
-.left{    
+.left{   
+    top: 10px;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    
     margin-left: -25%;
 }
 .center{
+    align-items: center;
+    top: 10px;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
     margin-top: -9em;
+}
+footer{
+    margin-top: 15em;
 }
 img{
     width: 100px;
