@@ -13,13 +13,12 @@ body{
 .left{   
     width: 150px;
     display: inline-block;
-    background-color: white;
+    background-color: greenyellow;
     flex: 1;
 }
 .center{
     width: 300px;
     display: inline-block;
-    background-color: white;
     flex: 1;
 }
 img{
