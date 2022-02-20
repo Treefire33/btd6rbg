@@ -7,11 +7,14 @@ var maxHealth;
 var hp;
 var inclusive = document.getElementById("inclusive");
 var children = document.getElementById("children");
+var saveBloon = document.getElementById("SCB");
 
 generateButton.onclick = generateLayers;
 usesHealthCheck.onclick = setUsesHealth;
+saveBloon.onclick = SCBF;
 var genedLayers = getRandomInt(1,8);
 var genedHealth;
+var childrenBloon;
 
 generateLayers();
 
@@ -31,6 +34,27 @@ function generateHealth()
     generateChildren();
 }
 
+function SCBF()
+{
+    var customBloon = new Object();
+    if(usesHealthCheck.checked)
+    {
+        customBloon.layers = this.genedLayers;
+        customBloon.usesHealth = usesHealthCheck.checked;
+    }
+    else
+    {
+        customBloon.health = this.genedHealth;
+        customBloon.usesHealth = usesHealthCheck.checked;
+    }
+    customBloon.childrenBloon = childrenBloon;
+    var file = 'CustomBloon.json';
+    var savedFile = new Blob([JSON.stringify(customBloon)], {
+        type: 'application/json'
+    }); 
+    
+}
+
 function generateChildren()
 {
     var bloonTypes = ["Red","Blue","Green","Yellow","Pink","Black","White","Zebra","Rainbow","Ceramic","MOAB","DDT","BFB","ZOMG","BAD"];
@@ -43,6 +67,7 @@ function generateChildren()
     {
         children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon];
     }
+    childrenBloon = bloonTypes[randomBloon];
 }
 
 function getBloonAlike(layersOnBloon)
