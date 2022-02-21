@@ -1,10 +1,14 @@
+@font-face {
+    font-family: 'LuckiestGuy';
+    src: url(/LuckiestGuy-Regular.ttf);
+}
 body{
     text-align: center;
     font-size: larger;
     color: black;
-    font-family: fantasy;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'LuckiestGuy', fantasy;
 }
 .maincontent{
     display: flex;
