@@ -21,6 +21,23 @@ body{
     display: inline-block;
     flex: 1;
 }
+.buttons{
+    font-size: 55px;
+    background-color: greenyellow;
+}
+#loader{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+}
+#SCB{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+}
+.TextReplace:hover{
+    cursor: pointer;
+}
 img{
     width: 100px;
     height: auto;

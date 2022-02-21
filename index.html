@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="imgs/BTD6Red.ico" type="image/x-icon">
+    <script src="FileSaver.js"></script>
     <title>BTD6 Bloon Stats Generator</title>
   </head>
   <body>
@@ -29,7 +30,10 @@
       </div>
     </div>
     <br>
-    <button id="SCB">Save Custom Bloon</button>
+    <div class="buttons">
+      <label for="SCB" class="TextReplace">Save Custom Bloon</label><button id="SCB" class="TextReplace"></button>
+      <label for="loader" class="TextReplace">Load Custom Bloon</label><input type="file" accept=".json" id="loader" onchange="loadFile(this.files[0])" class="TextReplace"/>
+    </div>
     <br>
     <br>
     <footer style="text-align: center; position: static;">
@@ -37,5 +41,4 @@
     </footer>
   </body>
   <script src="main.js"></script>
-  <script src="FileSaver.js"></script>
 </html>

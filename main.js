@@ -8,13 +8,15 @@ var hp;
 var inclusive = document.getElementById("inclusive");
 var children = document.getElementById("children");
 var saveBloon = document.getElementById("SCB");
+var loadBloon = document.getElementById("LCB");
 
 generateButton.onclick = generateLayers;
 usesHealthCheck.onclick = setUsesHealth;
 saveBloon.onclick = SCBF;
-var genedLayers = getRandomInt(1,8);
+var genedLayers;
 var genedHealth;
 var childrenBloon;
+var usesHealthB = false;
 
 generateLayers();
 
@@ -37,36 +39,49 @@ function generateHealth()
 function SCBF()
 {
     var customBloon = new Object();
-    if(usesHealthCheck.checked)
-    {
-        customBloon.layers = this.genedLayers;
-        customBloon.usesHealth = usesHealthCheck.checked;
-    }
-    else
-    {
-        customBloon.health = this.genedHealth;
-        customBloon.usesHealth = usesHealthCheck.checked;
-    }
+    customBloon.layers = genedLayers;
+    customBloon.health = genedHealth;
+    customBloon.usesHealth = usesHealthB;
     customBloon.childrenBloon = childrenBloon;
     var file = 'CustomBloon.json';
     var savedFile = new Blob([JSON.stringify(customBloon)], {
         type: 'application/json'
     }); 
-    
+    saveAs(savedFile,file);
+}
+
+async function loadFile(file) 
+{
+    let text = await (new Response(file)).text();
+    var textt = JSON.parse(text);
+    console.log(textt);
+    LoadBackData(textt);
+}
+
+function LoadBackData(Data)
+{
+    setLoadUsesHealth(Data.usesHealth);
+    usesHealthCheck.checked = usesHealthB;
+    if(usesHealthB === true)
+    {
+        genedHealth = parseInt(Data.health);
+        getMoabALike();
+        layers.innerText = 'Health: ' + genedHealth.toString();
+    }
+    else
+    {
+        genedLayers = parseInt(Data.layers);
+        getBloonAlike(genedLayers);
+        layers.innerText = 'Layers: ' + genedLayers.toString();
+    }
+    children.innerHTML = "Children Bloons: <br/>" + Data.childrenBloon;
 }
 
 function generateChildren()
 {
-    var bloonTypes = ["Red","Blue","Green","Yellow","Pink","Black","White","Zebra","Rainbow","Ceramic","MOAB","DDT","BFB","ZOMG","BAD"];
+    var bloonTypes = ["Red Bloon","Blue Bloon","Green Bloon","Yellow Bloon","Pink Bloon","Black Bloon","White Bloon","Zebra Bloon","Rainbow Bloon","Ceramic Bloon","MOAB","DDT","BFB","ZOMG","BAD"];
     let randomBloon = getRandomInt(0,bloonTypes.length-1);
-    if(randomBloon < 10)
-    {
-        children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon] + " Bloon";
-    }
-    else
-    {
-        children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon];
-    }
+    children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon];
     childrenBloon = bloonTypes[randomBloon];
 }
 
@@ -175,10 +190,25 @@ function setUsesHealth()
 {
     if(usesHealthCheck.checked)
     {
+        usesHealthB = true;
         IfHealth(true);
     }
     else
     {
+        usesHealthB = false;
+        IfHealth(false);
+    }
+}
+function setLoadUsesHealth(yes)
+{
+    if(yes)
+    {
+        usesHealthB = true;
+        IfHealth(true);
+    }
+    else
+    {
+        usesHealthB = false;
         IfHealth(false);
     }
 }
