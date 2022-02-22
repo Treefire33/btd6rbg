@@ -17,6 +17,7 @@ var genedLayers;
 var genedHealth;
 var childrenBloon;
 var usesHealthB = false;
+var childrenAmount;
 
 generateLayers();
 
@@ -43,6 +44,7 @@ function SCBF()
     customBloon.health = genedHealth;
     customBloon.usesHealth = usesHealthB;
     customBloon.childrenBloon = childrenBloon;
+    customBloon.childrenAmount = childrenAmount;
     var file = 'CustomBloon.json';
     var savedFile = new Blob([JSON.stringify(customBloon)], {
         type: 'application/json'
@@ -74,14 +76,15 @@ function LoadBackData(Data)
         getBloonAlike(genedLayers);
         layers.innerText = 'Layers: ' + genedLayers.toString();
     }
-    children.innerHTML = "Children Bloons: <br/>" + Data.childrenBloon;
+    children.innerHTML = "Children Bloons: <br/>" + Data.childrenBloon + "<br/> (Amount: "+Data.childrenAmount+")";
 }
 
 function generateChildren()
 {
     var bloonTypes = ["Red Bloon","Blue Bloon","Green Bloon","Yellow Bloon","Pink Bloon","Black Bloon","White Bloon","Zebra Bloon","Rainbow Bloon","Ceramic Bloon","MOAB","DDT","BFB","ZOMG","BAD"];
     let randomBloon = getRandomInt(0,bloonTypes.length-1);
-    children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon] + "<br/> (Amount: "+getRandomInt(1,4)+")";
+    childrenAmount = getRandomInt(1,4);
+    children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon] + "<br/> (Amount: "+childrenAmount+")";
     childrenBloon = bloonTypes[randomBloon];
 }
 
