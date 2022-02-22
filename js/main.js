@@ -81,7 +81,7 @@ function generateChildren()
 {
     var bloonTypes = ["Red Bloon","Blue Bloon","Green Bloon","Yellow Bloon","Pink Bloon","Black Bloon","White Bloon","Zebra Bloon","Rainbow Bloon","Ceramic Bloon","MOAB","DDT","BFB","ZOMG","BAD"];
     let randomBloon = getRandomInt(0,bloonTypes.length-1);
-    children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon];
+    children.innerHTML = "Children Bloons: <br/>" + bloonTypes[randomBloon] + "<br/> (Amount: "+getRandomInt(1,4)+")";
     childrenBloon = bloonTypes[randomBloon];
 }
 
