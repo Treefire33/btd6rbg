@@ -9,6 +9,7 @@ var inclusive = document.getElementById("inclusive");
 var children = document.getElementById("children");
 var saveBloon = document.getElementById("SCB");
 var loadBloon = document.getElementById("LCB");
+var loader = document.getElementById("loader");
 
 generateButton.onclick = generateLayers;
 usesHealthCheck.onclick = setUsesHealth;
@@ -77,6 +78,7 @@ function LoadBackData(Data)
         layers.innerText = 'Layers: ' + genedLayers.toString();
     }
     children.innerHTML = "Children Bloons: <br/>" + Data.childrenBloon + "<br/> (Amount: "+Data.childrenAmount+")";
+    loader.value = null;
 }
 
 function generateChildren()
