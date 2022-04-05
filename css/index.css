@@ -1,15 +1,11 @@
-@import url("/fonts/LuckiestGuy-Regular.ttf")
-@font-face {
-    font-family: 'LuckiestGuy';
-    src: url(/fonts/LuckiestGuy-Regular.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 body{
     text-align: center;
     font-size: larger;
     color: black;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'LuckiestGuy', fantasy;
+    font-family: 'Luckiest Guy', fantasy;
 }
 .maincontent{
     display: flex;
