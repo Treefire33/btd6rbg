@@ -10,7 +10,6 @@ var children = document.getElementById("children");
 var saveBloon = document.getElementById("SCB");
 var loadBloon = document.getElementById("LCB");
 var loader = document.getElementById("loader");
-var visitText = document.getElementbyId("visitText");
 
 generateButton.onclick = generateLayers;
 usesHealthCheck.onclick = setUsesHealth;
