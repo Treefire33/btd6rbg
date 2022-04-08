@@ -27,12 +27,15 @@ function setVisitText()
 {
     if(window.localStorage.getItem("visits") >= 1)
     {
-        window.localStorage.setItem("visits", window.localStorage.getItem("visits") + 1);
-        valueText.innerText = "You have visited this website: "+window.localStorage.getItem("visits")+" times";
+        let num = Number(window.localStorage.getItem("visits"));
+        num + 1;
+        window.localStorage.setItem("visits", num);
+        valueText.innerText = "You have visited this website: "+num+" times";
     }
     else
     {
         window.localStorage.setItem("visits", 1);
+        alert(window.localStorage.getItem("visits"));
         valueText.innerText = "You have visited this website: 1 time";
     }
 }
