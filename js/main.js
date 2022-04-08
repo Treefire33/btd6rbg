@@ -23,15 +23,25 @@ var childrenAmount;
 var visitAmount = 0;
 function writeToCookie()
 {
+    let visits
+    if(document.cookie !== null)
+    {
+        visits = parseInt(document.cookie.split('=')[1]);
+        alert(document.cookie);
+    }
+    else
+    {
+        visits = 1;
+    }
     if(visitAmount = 0)
     {
-        visitAmount = document.cookie.split(' ')[1];
+        visitAmount = visits;
     }
     if(visitAmount != 0)
     {
         visitAmount += 1;
     }
-    document.cookie = "Visits: "+visitAmount;
+    document.cookie = "visits = "+visitAmount;
     document.write("Cookies: "+"cookieVal: "+ visitAmount); 
     visitText.innerText = "You have visited this website: "+visitAmount+"times.";
 }
