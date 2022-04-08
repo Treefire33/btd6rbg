@@ -32,7 +32,7 @@ function setVisitText()
     }
     else
     {
-        window.localStorage.visits = 1;
+        window.localStorage.setItem("visits", 1);
         valueText.innerText = "You have visited this website: 1 time";
     }
 }
