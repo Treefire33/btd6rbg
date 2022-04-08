@@ -20,35 +20,18 @@ var genedHealth;
 var childrenBloon;
 var usesHealthB = false;
 var childrenAmount;
-var visitAmount = 0;
-function writeToCookie()
-{
-    let visits
-    if(document.cookie !== null)
-    {
-        visits = parseInt(document.cookie.split('=')[1]);
-        alert(document.cookie);
-    }
-    else
-    {
-        visits = 1;
-    }
-    if(visitAmount = 0)
-    {
-        visitAmount = visits;
-    }
-    if(visitAmount != 0)
-    {
-        visitAmount += 1;
-    }
-    document.cookie = "visits = "+visitAmount;
-    document.write("Cookies: "+"cookieVal: "+ visitAmount); 
-    visitText.innerText = "You have visited this website: "+visitAmount+"times.";
-}
 
-writeToCookie();
+cookieWrite();
 
 generateLayers();
+
+function cookieWrite()
+{
+    let name = "visits=";
+    let visits = 1;
+    document.cookie = name+toString(visits)+";";
+    alert(document.cookie.split(';')[0].split('=')[1]);
+}
 
 function generateLayers()
 {  
