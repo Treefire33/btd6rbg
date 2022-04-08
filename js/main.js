@@ -25,14 +25,16 @@ generateLayers();
 
 function setVisitText()
 {
-    let visits = 1;
     if(window.localStorage.visits)
     {
-        visits = Number(window.localStorage.getItem("visits"));
+        window.localStorage.visits = Number(window.localStorage.visits) + 1;
+        valueText.innerText = "You have visited this website: "+toString(window.localStorage.visits)+" times";
     }
-    visits += 1;
-    window.localStorage.visits = visits;
-    valueText.innerText = "You have visited this website: "+toString(visits)+" times";
+    else
+    {
+        window.localStorage.visits = 1;
+        valueText.innerText = "You have visited this website: 1 time";
+    }
 }
 
 setVisitText();
