@@ -21,19 +21,7 @@ var childrenBloon;
 var usesHealthB = false;
 var childrenAmount;
 
-alert("READY!");
-
-cookieWrite();
-
 generateLayers();
-
-function cookieWrite()
-{
-    alert("WRITING COOKIE");
-    let name = "visits=";
-    let visits = 1;
-    document.cookie = name+toString(visits)+";";
-}
 
 function generateLayers()
 {  
