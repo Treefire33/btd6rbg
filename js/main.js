@@ -10,6 +10,7 @@ var children = document.getElementById("children");
 var saveBloon = document.getElementById("SCB");
 var loadBloon = document.getElementById("LCB");
 var loader = document.getElementById("loader");
+var valueText = document.getElementById("visitText");
 
 generateButton.onclick = generateLayers;
 usesHealthCheck.onclick = setUsesHealth;
@@ -21,6 +22,22 @@ var usesHealthB = false;
 var childrenAmount;
 
 generateLayers();
+
+function setVisitText()
+{
+    let visits = 1;
+    if(window.localStorage.getItem("visits") !== null)
+    {
+        visits = parseInt(window.localStorage.getItem("visits"));
+    }else{
+        window.localStorage.setItem("visits", visits);
+    }
+    visits += 1;
+    window.localStorage.setItem("visits", visits);
+    valueText.innerText = "You have visited this website: "+toString(visits)+" times";
+}
+
+setVisitText();
 
 function generateLayers()
 {  
