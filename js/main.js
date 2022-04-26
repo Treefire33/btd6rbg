@@ -28,7 +28,7 @@ function setVisitText()
     if(window.localStorage.getItem("visits") >= 1)
     {
         window.localStorage.setItem("visits", Number(window.localStorage.getItem("visits"))+1);
-        valueText.innerText = "You have visited this website: "+num+" times";
+        valueText.innerText = "You have visited this website: "+window.localStorage.getItem("visits")+" times";
     }
     else
     {
